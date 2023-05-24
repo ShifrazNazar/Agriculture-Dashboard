@@ -1,53 +1,71 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { firestore, collection, getDocs } from "../firebase";
 
-const DataViewer = () => {
-  const [data, setData] = useState([]);
+const DataEntry = () => {
+  const [selectedCollection, setSelectedCollection] = useState("");
+  const [filteredValues, setFilteredValues] = useState([]);
 
-  useEffect(() => {
-    // Fetch data from Firestore
-    const fetchData = async () => {
-      try {
-        const collectionRef = collection(firestore, "BiologyBalance");
-        const querySnapshot = await getDocs(collectionRef);
-        const documents = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setData(documents);
-      } catch (error) {
-        console.error("Error fetching data from Firestore:", error);
-      }
-    };
+  const handleFilterChange = (event) => {
+    setSelectedCollection(event.target.value);
+    setFilteredValues([]);
+  };
 
-    fetchData();
-  }, []);
+  const handleFilterSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      // Retrieve values from Firestore for selected collection
+      const collectionRef = collection(firestore, selectedCollection);
+      const querySnapshot = await getDocs(collectionRef);
+      const values = querySnapshot.docs.map((doc) => doc.data());
+      setFilteredValues(values);
+    } catch (error) {
+      console.error(`Error retrieving ${selectedCollection} data from Firestore:`, error);
+    }
+  };
 
   return (
     <div className="mx-auto max-w-md bg-white p-8">
-      <h2 className="mb-4 text-2xl font-bold">Data Viewer</h2>
-      <ul>
-        {data.map((item) => (
-          <li key={item.id} className="mb-4 rounded bg-gray-100 p-4">
-            <p className="mb-2">Biology Balance</p>
-            <p className="mb-2">
-              Active Photosynthesis Bacteria:{" "}
-              {item.activePhotosynthesisBacteria}
-            </p>
-            <p className="mb-2">Active Yeasts: {item.activeYeasts}</p>
-            <p className="mb-2">
-              Total Lactic Acid Bacteria: {item.totalLacticAcidBacteria}
-            </p>
-            <p className="mb-2">
-              Active Actinomycetes: {item.activeActinomycetes}
-            </p>
-            <p className="mb-2">Active Fungi: {item.activeFungi}</p>
-            <p>Cellulose Utilisers: {item.celluloseUtilisers}</p>
-          </li>
-        ))}
-      </ul>
+      <h2 className="mb-4 text-2xl font-bold">Data Entry</h2>
+      <form onSubmit={handleFilterSubmit}>
+        <div className="mb-4">
+          <label htmlFor="filterCollection" className="mb-2 block">
+            Select a Collection
+          </label>
+          <select
+            id="filterCollection"
+            name="filterCollection"
+            value={selectedCollection}
+            onChange={handleFilterChange}
+            className="w-full border border-gray-300 p-2"
+          >
+            <option value="">Please select an option</option>
+            <option value="BiologyBalance">Biology Balance</option>
+            <option value="Tree">Tree</option>
+            <option value="PaddyGrain">Paddy Grain</option>
+          </select>
+        </div>
+        <button
+          type="submit"
+          className="rounded bg-blue-500 px-4 py-2 text-white"
+        >
+          Filter
+        </button>
+      </form>
+      {filteredValues.length > 0 && (
+        <div>
+          <h3 className="text-lg font-bold mt-4">Filtered Values</h3>
+          <ul>
+            {filteredValues.map((value, index) => (
+              <li key={index}>
+                <pre>{JSON.stringify(value, null, 2)}</pre>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };
 
-export default DataViewer;
+export default DataEntry;
