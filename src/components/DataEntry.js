@@ -337,13 +337,13 @@ const DataEntry = () => {
     <div className="mx-auto max-w-md bg-white p-8">
       <h2 className="mb-4 text-2xl font-bold">Data Entry</h2>
       <div className="mb-4">
-        <label className="mb-2 block font-bold">Select Form:</label>
+        <label className="mb-2 block font-bold">Select Agricultral Product</label>
         <select
           value={activeForm}
           onChange={handleFilterChange}
           className="w-full border border-gray-300 p-2"
         >
-          <option value="">Select Form</option>
+          <option value="">Select Product</option>
           <option value="BiologyBalance">Biology Balance</option>
           <option value="Tree">Tree</option>
           <option value="PaddyGrain">Paddy Grain</option>
