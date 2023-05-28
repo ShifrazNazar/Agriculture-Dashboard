@@ -35,9 +35,8 @@ const Sugarcane = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4">
-      <div>
-        <h1 className="font-bold">Sugarcane</h1>
+    <form onSubmit={handleSubmit}>
+      <div className="grid grid-cols-3 gap-4">
         <div className="mb-4">
           <label htmlFor="sucroseContent" className="mb-2 block">
             Sucrose Content (Pol%)
@@ -51,8 +50,6 @@ const Sugarcane = () => {
             className="w-full border border-gray-300 p-2"
           />
         </div>
-      </div>
-      <div>
         <div className="mb-4">
           <label htmlFor="tonneCaneToTonneSugar" className="mb-2 block">
             Tonne Cane to Tonne Sugar (tcts)
@@ -66,8 +63,6 @@ const Sugarcane = () => {
             className="w-full border border-gray-300 p-2"
           />
         </div>
-      </div>
-      <div className="col-span-2">
         <div className="mb-4">
           <label htmlFor="yield" className="mb-2 block">
             Yield (tca t/ha)
@@ -84,7 +79,7 @@ const Sugarcane = () => {
       </div>
       <button
         type="submit"
-        className="rounded bg-blue-500 px-4 py-2 text-white col-span-2"
+        className="col-span-2 rounded bg-blue-500 px-4 py-2 text-white"
       >
         Submit Sugarcane
       </button>

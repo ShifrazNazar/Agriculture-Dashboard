@@ -47,9 +47,8 @@ const WildCabbage = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4">
-      <div>
-        <h1 className="font-bold">Wild Cabbage</h1>
+    <form onSubmit={handleSubmit}>
+      <div className="grid grid-cols-3 gap-4">
         <div className="mb-4">
           <label htmlFor="plantHeight" className="mb-2 block">
             Plant Height (cm)
@@ -102,8 +101,6 @@ const WildCabbage = () => {
             className="w-full border border-gray-300 p-2"
           />
         </div>
-      </div>
-      <div>
         <div className="mb-4">
           <label htmlFor="innerShrinkingDiameter" className="mb-2 block">
             Inner Shrinking Vertical & Horizontal Diameter (cm × cm)

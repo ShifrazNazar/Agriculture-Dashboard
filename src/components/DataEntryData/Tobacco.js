@@ -54,162 +54,163 @@ const Tobacco = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="mb-4">
-        <h1 className="font-bold">Tobacco</h1>
-        <label htmlFor="ripeness" className="mb-2 block">
-          Ripeness
-        </label>
-        <input
-          type="text"
-          id="ripeness"
-          name="ripeness"
-          value={tobaccoValues.ripeness}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2"
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="leafStructure" className="mb-2 block">
-          Leaf Structure
-        </label>
-        <input
-          type="text"
-          id="leafStructure"
-          name="leafStructure"
-          value={tobaccoValues.leafStructure}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2"
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="smokeIntensity" className="mb-2 block">
-          Smoke Intensity
-        </label>
-        <input
-          type="text"
-          id="smokeIntensity"
-          name="smokeIntensity"
-          value={tobaccoValues.smokeIntensity}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2"
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="oilContent" className="mb-2 block">
-          Oil Content
-        </label>
-        <input
-          type="text"
-          id="oilContent"
-          name="oilContent"
-          value={tobaccoValues.oilContent}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2"
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="colourIntensity" className="mb-2 block">
-          Colour Intensity
-        </label>
-        <input
-          type="text"
-          id="colourIntensity"
-          name="colourIntensity"
-          value={tobaccoValues.colourIntensity}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2"
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="leafWidth" className="mb-2 block">
-          Leaf Width
-        </label>
-        <input
-          type="text"
-          id="leafWidth"
-          name="leafWidth"
-          value={tobaccoValues.leafWidth}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2"
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="leafLength" className="mb-2 block">
-          Leaf Length
-        </label>
-        <input
-          type="text"
-          id="leafLength"
-          name="leafLength"
-          value={tobaccoValues.leafLength}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2"
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="uniformity" className="mb-2 block">
-          Uniformity
-        </label>
-        <input
-          type="text"
-          id="uniformity"
-          name="uniformity"
-          value={tobaccoValues.uniformity}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2"
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="injury" className="mb-2 block">
-          Injury
-        </label>
-        <input
-          type="text"
-          id="injury"
-          name="injury"
-          value={tobaccoValues.injury}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2"
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="topLeafCount" className="mb-2 block">
-          Top Leaf Count
-        </label>
-        <input
-          type="text"
-          id="topLeafCount"
-          name="topLeafCount"
-          value={tobaccoValues.topLeafCount}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2"
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="middleLeafCount" className="mb-2 block">
-          Middle Leaf Count
-        </label>
-        <input
-          type="text"
-          id="middleLeafCount"
-          name="middleLeafCount"
-          value={tobaccoValues.middleLeafCount}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2"
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="bottomLeafCount" className="mb-2 block">
-          Bottom Leaf Count
-        </label>
-        <input
-          type="text"
-          id="bottomLeafCount"
-          name="bottomLeafCount"
-          value={tobaccoValues.bottomLeafCount}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2"
-        />
+      <div className="grid grid-cols-3 gap-4">
+        <div className="mb-4">
+          <label htmlFor="ripeness" className="mb-2 block">
+            Ripeness
+          </label>
+          <input
+            type="text"
+            id="ripeness"
+            name="ripeness"
+            value={tobaccoValues.ripeness}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="leafStructure" className="mb-2 block">
+            Leaf Structure
+          </label>
+          <input
+            type="text"
+            id="leafStructure"
+            name="leafStructure"
+            value={tobaccoValues.leafStructure}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="smokeIntensity" className="mb-2 block">
+            Smoke Intensity
+          </label>
+          <input
+            type="text"
+            id="smokeIntensity"
+            name="smokeIntensity"
+            value={tobaccoValues.smokeIntensity}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="oilContent" className="mb-2 block">
+            Oil Content
+          </label>
+          <input
+            type="text"
+            id="oilContent"
+            name="oilContent"
+            value={tobaccoValues.oilContent}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="colourIntensity" className="mb-2 block">
+            Colour Intensity
+          </label>
+          <input
+            type="text"
+            id="colourIntensity"
+            name="colourIntensity"
+            value={tobaccoValues.colourIntensity}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="leafWidth" className="mb-2 block">
+            Leaf Width
+          </label>
+          <input
+            type="text"
+            id="leafWidth"
+            name="leafWidth"
+            value={tobaccoValues.leafWidth}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="leafLength" className="mb-2 block">
+            Leaf Length
+          </label>
+          <input
+            type="text"
+            id="leafLength"
+            name="leafLength"
+            value={tobaccoValues.leafLength}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="uniformity" className="mb-2 block">
+            Uniformity
+          </label>
+          <input
+            type="text"
+            id="uniformity"
+            name="uniformity"
+            value={tobaccoValues.uniformity}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="injury" className="mb-2 block">
+            Injury
+          </label>
+          <input
+            type="text"
+            id="injury"
+            name="injury"
+            value={tobaccoValues.injury}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="topLeafCount" className="mb-2 block">
+            Top Leaf Count
+          </label>
+          <input
+            type="text"
+            id="topLeafCount"
+            name="topLeafCount"
+            value={tobaccoValues.topLeafCount}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="middleLeafCount" className="mb-2 block">
+            Middle Leaf Count
+          </label>
+          <input
+            type="text"
+            id="middleLeafCount"
+            name="middleLeafCount"
+            value={tobaccoValues.middleLeafCount}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="bottomLeafCount" className="mb-2 block">
+            Bottom Leaf Count
+          </label>
+          <input
+            type="text"
+            id="bottomLeafCount"
+            name="bottomLeafCount"
+            value={tobaccoValues.bottomLeafCount}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
       </div>
       <button
         type="submit"

@@ -11,13 +11,26 @@ const Dashboard = () => {
   return (
     <div>
       <Navbar />
-      <div className="flex flex-row">
-        <div>
+      <div className="flex flex-row bg-gray-100">
+        <div className="shadow-lg">
           <Sidebar />
         </div>
-        <div>
+        <div className="flex-grow">
           <Routes>
-            <Route index element={<h1>Dashboard</h1>} />
+            <Route
+              path="/"
+              element={
+                <div className="p-8">
+                  <h1 className="text-3xl font-semibold mb-4">
+                    Welcome to Dashboard
+                  </h1>
+                  <p className="text-gray-500">
+                    Get started by selecting an option from the sidebar.
+                  </p>
+
+                </div>
+              }
+            />
             <Route path="manage-team" element={<MgtTeam />} />
             <Route path="manage-customer" element={<MgtCustomer />} />
             <Route path="data-viewer" element={<DataViewer />} />

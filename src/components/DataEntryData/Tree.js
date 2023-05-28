@@ -36,46 +36,47 @@ const Tree = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="mb-4">
-        <h1 className="font-bold">Tree</h1>
-        <label htmlFor="dbh" className="mb-2 block">
-          Diameter at Breast Height (DBH)
-        </label>
-        <input
-          type="text"
-          id="dbh"
-          name="dbh"
-          value={treeValues.dbh}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2"
-        />
+      <div className="grid grid-cols-3 gap-4">
+        <div className="mb-4">
+          <label htmlFor="dbh" className="mb-2 block">
+            Diameter at Breast Height (DBH)
+          </label>
+          <input
+            type="text"
+            id="dbh"
+            name="dbh"
+            value={treeValues.dbh}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="freshWeight" className="mb-2 block">
+            Fresh Weight (1cm3 in g)
+          </label>
+          <input
+            type="text"
+            id="freshWeight"
+            name="freshWeight"
+            value={treeValues.freshWeight}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="dryWeight" className="mb-2 block">
+            Dry Weight (1cm3 in g)
+          </label>
+          <input
+            type="text"
+            id="dryWeight"
+            name="dryWeight"
+            value={treeValues.dryWeight}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
       </div>
-      <div className="mb-4">
-        <label htmlFor="freshWeight" className="mb-2 block">
-          Fresh Weight (1cm3 in g)
-        </label>
-        <input
-          type="text"
-          id="freshWeight"
-          name="freshWeight"
-          value={treeValues.freshWeight}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2"
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="dryWeight" className="mb-2 block">
-          Dry Weight (1cm3 in g)
-        </label>
-        <input
-          type="text"
-          id="dryWeight"
-          name="dryWeight"
-          value={treeValues.dryWeight}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2"
-        />
-      </div>{" "}
       <button
         type="submit"
         className="rounded bg-blue-500 px-4 py-2 text-white"

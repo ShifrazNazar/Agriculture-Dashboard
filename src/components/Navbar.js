@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { auth } from "../firebase";
+import logo from "../Assets/Agro.jpeg";
 
 const Navbar = () => {
   const [authUser, setAuthUser] = useState(null);
@@ -61,22 +62,25 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-100">
+    <nav>
       <div className="mx-auto border-b-2 px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
-            <Link to="/" className="text-lg font-bold text-gray-900">
+            <Link to="/">
+              <img className="w-24 mr-6" src={logo} alt="logo" />
+            </Link>
+            <Link to="/" className=" font-bold text-gray-900">
               Home
             </Link>
             <Link
               to="/about"
-              className="ml-4 text-gray-500 hover:text-gray-900"
+              className="text-sm ml-4 text-gray-500 hover:text-gray-900"
             >
               About Us
             </Link>
             <Link
               to="/dashboard"
-              className="ml-4 text-gray-500 hover:text-gray-900"
+              className="text-sm ml-4 text-gray-500 hover:text-gray-900"
             >
               Dashboard
             </Link>
@@ -84,7 +88,7 @@ const Navbar = () => {
           <div className="ml-4 flex items-center">
             <Link
               to="/contact"
-              className="mr-4 text-gray-500 hover:text-gray-900"
+              className="mr-4 text-sm text-gray-500 hover:text-gray-900"
             >
               Contact Us
             </Link>

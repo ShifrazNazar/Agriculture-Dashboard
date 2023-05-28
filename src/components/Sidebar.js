@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import HomeIcon from '@mui/icons-material/Home';
 
 const Sidebar = () => {
   return (
-    <div className="h-screen border-r-2 bg-gray-100 p-4 ">
+    <div className="h-screen border-r-2 p-4 ">
       <div className="py-2">
         <img
           className="h-12"
@@ -13,6 +14,15 @@ const Sidebar = () => {
       </div>
       <ul>
         <li>
+          {/* HomeIcon added */}
+          <Link
+            className="text-gray-600 hover:text-gray-800 flex items-center"
+            to="/dashboard"
+          >
+            <HomeIcon />
+            <span className="ml-2">Home</span>
+
+          </Link>
           <p className="mb-2 font-semibold text-gray-700">Management</p>
           <ul className="pl-4">
             <li>

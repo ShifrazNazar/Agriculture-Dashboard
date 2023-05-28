@@ -31,32 +31,28 @@ const Poppy = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4">
-      <div className="col-span-2 mb-4">
-        <h1 className="font-bold">Poppy</h1>
+    <form onSubmit={handleSubmit}>
+      <div className="grid grid-cols-3 gap-4">
+        <div className="mb-4">
+          <label htmlFor="alkaloid" className="mb-2 block">
+            Alkaloid (%)
+          </label>
+          <input
+            type="text"
+            id="alkaloid"
+            name="alkaloid"
+            value={poppyValues.alkaloid}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
       </div>
-      <div className="mb-4">
-        <label htmlFor="alkaloid" className="mb-2 block">
-          Alkaloid (%)
-        </label>
-        <input
-          type="text"
-          id="alkaloid"
-          name="alkaloid"
-          value={poppyValues.alkaloid}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2"
-        />
-      </div>
-      {/* Additional input fields can be added here */}
-      <div className="col-span-2">
-        <button
-          type="submit"
-          className="rounded bg-blue-500 px-4 py-2 text-white"
-        >
-          Submit Poppy
-        </button>
-      </div>
+      <button
+        type="submit"
+        className="rounded bg-blue-500 px-4 py-2 text-white"
+      >
+        Submit Poppy
+      </button>
     </form>
   );
 };

@@ -80,7 +80,7 @@ const DataEntry = () => {
   };
 
   return (
-    <div className="mx-auto max-w-md bg-white p-8">
+    <div className="bg-white p-8">
       <h2 className="mb-4 text-2xl font-bold">Data Entry</h2>
       <div className="mb-4">
         <label className="mb-2 block font-bold">
@@ -89,7 +89,7 @@ const DataEntry = () => {
         <select
           value={activeForm}
           onChange={handleFilterChange}
-          className="w-full border border-gray-300 p-2"
+          className="border border-gray-300 p-2"
         >
           <option value="">Select Product</option>
           <option value="BiologyBalance">Biology Balance</option>

@@ -34,8 +34,7 @@ const Other = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="mb-4">
-        <h1 className="font-bold">Other</h1>
+      <div className="grid grid-cols-3 gap-4">
         <div className="mb-4">
           <label htmlFor="soilMicrobialBioMassCarbon" className="mb-2 block">
             Soil Microbial Bio Mass Carbon (SMBC)
@@ -62,13 +61,13 @@ const Other = () => {
             className="w-full border border-gray-300 p-2"
           />
         </div>
-        <button
-          type="submit"
-          className="rounded bg-blue-500 px-4 py-2 text-white"
-        >
-          Submit Other
-        </button>
       </div>
+      <button
+        type="submit"
+        className="rounded bg-blue-500 px-4 py-2 text-white"
+      >
+        Submit Other
+      </button>
     </form>
   );
 };

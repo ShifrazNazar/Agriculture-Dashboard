@@ -1,13 +1,17 @@
 import React from "react";
 import Navbar from "./Navbar";
+import Truck from "../Assets/truck.jpeg";
+
 
 const AboutUs = () => {
   return (
-    <div className="h-screen bg-gray-100">
+    <div className="h-full bg-gray-100">
       <Navbar />
-      <div className="mx-auto max-w-2xl py-12">
+      <img className="w-full " src={Truck} alt="Truck" />
+
+      <div className="mx-auto max-w-2xl py-12 text-center">
         <h1 className=" mb-4 text-3xl font-bold text-gray-800">About Us</h1>
-        <p className="mb-4 text-gray-700">
+        <p className="mb-4 text-gray-700 text-center">
           We are an agriculture produce research company dedicated to advancing
           the field of crop cultivation and quality. Our team of experts is
           committed to developing high-quality produce varieties and innovative

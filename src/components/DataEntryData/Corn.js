@@ -40,71 +40,72 @@ const Corn = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="mb-4">
-        <h1 className="font-bold">Corn</h1>
-        <label htmlFor="grade" className="mb-2 block">
-          Grade
-        </label>
-        <input
-          type="text"
-          id="grade"
-          name="grade"
-          value={cornValues.grade}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2"
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="testWeight" className="mb-2 block">
-          Minimum test weight per bushel (g)
-        </label>
-        <input
-          type="text"
-          id="testWeight"
-          name="testWeight"
-          value={cornValues.testWeight}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2"
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="damagedKernels" className="mb-2 block">
-          Damaged kernels (%)
-        </label>
-        <input
-          type="text"
-          id="damagedKernels"
-          name="damagedKernels"
-          value={cornValues.damagedKernels}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2"
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="brokenAndForeignMaterial" className="mb-2 block">
-          Broken Corn and Foreign material (%)
-        </label>
-        <input
-          type="text"
-          id="brokenAndForeignMaterial"
-          name="brokenAndForeignMaterial"
-          value={cornValues.brokenAndForeignMaterial}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2"
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="heatDamagedKernels" className="mb-2 block">
-          Heat damaged kernels (%)
-        </label>
-        <input
-          type="text"
-          id="heatDamagedKernels"
-          name="heatDamagedKernels"
-          value={cornValues.heatDamagedKernels}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2"
-        />
+      <div className="grid grid-cols-3 gap-4">
+        <div className="mb-4">
+          <label htmlFor="grade" className="mb-2 block">
+            Grade
+          </label>
+          <input
+            type="text"
+            id="grade"
+            name="grade"
+            value={cornValues.grade}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="testWeight" className="mb-2 block">
+            Minimum test weight per bushel (g)
+          </label>
+          <input
+            type="text"
+            id="testWeight"
+            name="testWeight"
+            value={cornValues.testWeight}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="damagedKernels" className="mb-2 block">
+            Damaged kernels (%)
+          </label>
+          <input
+            type="text"
+            id="damagedKernels"
+            name="damagedKernels"
+            value={cornValues.damagedKernels}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="brokenAndForeignMaterial" className="mb-2 block">
+            Broken Corn and Foreign material (%)
+          </label>
+          <input
+            type="text"
+            id="brokenAndForeignMaterial"
+            name="brokenAndForeignMaterial"
+            value={cornValues.brokenAndForeignMaterial}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="heatDamagedKernels" className="mb-2 block">
+            Heat damaged kernels (%)
+          </label>
+          <input
+            type="text"
+            id="heatDamagedKernels"
+            name="heatDamagedKernels"
+            value={cornValues.heatDamagedKernels}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
       </div>
       <button
         type="submit"

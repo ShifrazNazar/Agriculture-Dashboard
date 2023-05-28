@@ -72,9 +72,8 @@ const Wheat = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="grid grid-cols-2 gap-4">
-        <div>
-          <h1 className="font-bold">Wheat</h1>
+      <div className="grid grid-cols-3 gap-4">
+        <div className="mb-4">
           <label htmlFor="plantHeight" className="mb-2 block">
             Plant Height (cm)
           </label>
@@ -334,7 +333,7 @@ const Wheat = () => {
             className="w-full border border-gray-300 p-2"
           />
         </div>
-        <div>
+        <div className="mb-4">
           <label htmlFor="insectDamagedKernels" className="mb-2 block">
             Insect-damaged Kernels (Count/100g)
           </label>

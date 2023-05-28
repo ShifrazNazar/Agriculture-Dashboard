@@ -46,9 +46,8 @@ const Sorghum = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-3 gap-4">
         <div className="mb-4">
-          <h1 className="font-bold">Sorghum</h1>
           <label htmlFor="stalkNitrogen" className="mb-2 block">
             Stalk Nitrogen (%)
           </label>

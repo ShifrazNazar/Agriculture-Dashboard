@@ -33,7 +33,7 @@ const DataEntry = () => {
   };
 
   return (
-    <div className="mx-auto max-w-md bg-white p-8">
+    <div className="bg-white p-8">
       <h2 className="mb-4 text-2xl font-bold">Data Viewer</h2>
       <div className="mb-4">
         <label htmlFor="filterCollection" className="mb-2 block font-bold">
@@ -44,7 +44,7 @@ const DataEntry = () => {
           name="filterCollection"
           value={selectedCollection}
           onChange={handleFilterChange}
-          className="w-full border border-gray-300 p-2"
+          className="border border-gray-300 p-2"
         >
           <option value="">Select Product</option>
           <option value="BiologyBalance">Biology Balance</option>
@@ -72,9 +72,9 @@ const DataEntry = () => {
         </select>
       </div>
       {filteredValues.length > 0 && (
-        <div>
+        <div className="w-screen overflow-x-auto">
           <h3 className="mt-4 text-lg font-bold">Filtered Values</h3>
-          <table className="mt-2 border-collapse border border-gray-300">
+          <table className="mt-2 border-collapse border border-gray-300 ">
             <thead>
               <tr>
                 {/* Assuming all objects have the same keys */}

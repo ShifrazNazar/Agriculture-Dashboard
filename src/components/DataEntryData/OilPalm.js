@@ -57,9 +57,8 @@ const OilPalm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4">
-      <div>
-        <h1 className="font-bold">Oil Palm</h1>
+    <form onSubmit={handleSubmit}>
+      <div className="grid grid-cols-3 gap-4">
         <div className="mb-4">
           <label htmlFor="fruitPericarpColour" className="mb-2 block">
             Fruit Pericarp Colour
@@ -86,8 +85,6 @@ const OilPalm = () => {
             className="w-full border border-gray-300 p-2"
           />
         </div>
-      </div>
-      <div>
         <div className="mb-4">
           <label htmlFor="looseSocketNumber" className="mb-2 block">
             Number of Loose Socket
@@ -244,14 +241,14 @@ const OilPalm = () => {
             className="w-full border border-gray-300 p-2"
           />
         </div>
-
-        <button
-          type="submit"
-          className="col-span-2 rounded bg-blue-500 px-4 py-2 text-white"
-        >
-          Submit Oil Palm
-        </button>
       </div>
+
+      <button
+        type="submit"
+        className="rounded bg-blue-500 px-4 py-2 text-white"
+      >
+        Submit Oil Palm
+      </button>
     </form>
   );
 };

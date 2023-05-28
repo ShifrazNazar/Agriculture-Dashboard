@@ -40,71 +40,72 @@ const PaddyGrain = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="mb-4">
-        <h1 className="font-bold">Paddy Grain</h1>
-        <label htmlFor="tillerCount" className="mb-2 block">
-          Tiller (Count)
-        </label>
-        <input
-          type="text"
-          id="tillerCount"
-          name="tillerCount"
-          value={paddyGrainValues.tillerCount}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2"
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="grainPerTiller" className="mb-2 block">
-          Number of Grain per Tiller
-        </label>
-        <input
-          type="text"
-          id="grainPerTiller"
-          name="grainPerTiller"
-          value={paddyGrainValues.grainPerTiller}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2"
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="grainWeight" className="mb-2 block">
-          1000 Grain Weight (g)
-        </label>
-        <input
-          type="text"
-          id="grainWeight"
-          name="grainWeight"
-          value={paddyGrainValues.grainWeight}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2"
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="screeningPercentage" className="mb-2 block">
-          Screening (%)
-        </label>
-        <input
-          type="text"
-          id="screeningPercentage"
-          name="screeningPercentage"
-          value={paddyGrainValues.screeningPercentage}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2"
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="emptyHuskPercentage" className="mb-2 block">
-          Empty/Immature Husk (%)
-        </label>
-        <input
-          type="text"
-          id="emptyHuskPercentage"
-          name="emptyHuskPercentage"
-          value={paddyGrainValues.emptyHuskPercentage}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2"
-        />
+      <div className="grid grid-cols-3 gap-4">
+        <div className="mb-4">
+          <label htmlFor="tillerCount" className="mb-2 block">
+            Tiller (Count)
+          </label>
+          <input
+            type="text"
+            id="tillerCount"
+            name="tillerCount"
+            value={paddyGrainValues.tillerCount}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="grainPerTiller" className="mb-2 block">
+            Number of Grain per Tiller
+          </label>
+          <input
+            type="text"
+            id="grainPerTiller"
+            name="grainPerTiller"
+            value={paddyGrainValues.grainPerTiller}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="grainWeight" className="mb-2 block">
+            1000 Grain Weight (g)
+          </label>
+          <input
+            type="text"
+            id="grainWeight"
+            name="grainWeight"
+            value={paddyGrainValues.grainWeight}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="screeningPercentage" className="mb-2 block">
+            Screening (%)
+          </label>
+          <input
+            type="text"
+            id="screeningPercentage"
+            name="screeningPercentage"
+            value={paddyGrainValues.screeningPercentage}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="emptyHuskPercentage" className="mb-2 block">
+            Empty/Immature Husk (%)
+          </label>
+          <input
+            type="text"
+            id="emptyHuskPercentage"
+            name="emptyHuskPercentage"
+            value={paddyGrainValues.emptyHuskPercentage}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
       </div>
       <button
         type="submit"
