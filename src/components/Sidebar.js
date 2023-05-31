@@ -1,70 +1,81 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import HomeIcon from '@mui/icons-material/Home';
+import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
+import DatasetIcon from "@mui/icons-material/Dataset";
 
 const Sidebar = () => {
-  return (
-    <div className="h-screen border-r-2 p-4 ">
-      <div className="py-2">
-        <img
-          className="h-12"
-          src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-          alt="Workflow"
-        />
-      </div>
-      <ul>
-        <li>
-          {/* HomeIcon added */}
-          <Link
-            className="text-gray-600 hover:text-gray-800 flex items-center"
-            to="/dashboard"
-          >
-            <HomeIcon />
-            <span className="ml-2">Home</span>
+  const [isOpen, setIsOpen] = useState(false);
 
-          </Link>
-          <p className="mb-2 font-semibold text-gray-700">Management</p>
-          <ul className="pl-4">
-            <li>
-              <Link
-                className="text-gray-600 hover:text-gray-800"
-                to="/dashboard/manage-team"
-              >
-                Manage Team
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="text-gray-600 hover:text-gray-800"
-                to="/dashboard/manage-customer"
-              >
-                Manage Customer
-              </Link>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <p className="mb-2 font-semibold text-gray-700">Data</p>
-          <ul className="pl-4">
-            <li>
-              <Link
-                className="text-gray-600 hover:text-gray-800"
-                to="/dashboard/data-entry"
-              >
-                Data Entry
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="text-gray-600 hover:text-gray-800"
-                to="/dashboard/data-viewer"
-              >
-                Data Viewer
-              </Link>
-            </li>
-          </ul>
-        </li>
-      </ul>
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <div className="fixed h-screen overflow-y-auto border-r-2 bg-white py-5 pl-5 pr-16">
+      <div className="md:hidden">
+        <button
+          onClick={toggleMenu}
+          className="text-gray-800 focus:outline-none"
+        >
+          {isOpen ? "Close" : "Menu"}
+        </button>
+      </div>
+      <div
+        className={`${
+          isOpen ? "block" : "hidden"
+        } md:block pl-4 md:pl-0 mt-4 md:mt-0`}
+      >
+        <div className="mb-4 flex items-center gap-2">
+          <ManageAccountsIcon className="text-lg" />
+          <p className="font-semibold text-gray-800">Management</p>
+        </div>
+        <div className="pl-4">
+          <div className="my-3">
+            <Link
+              className="text-gray-600 hover:text-gray-800"
+              to="/dashboard/manage-team"
+            >
+              Manage Team
+            </Link>
+          </div>
+          <div className="my-3">
+            <Link
+              className="text-gray-600 hover:text-gray-800"
+              to="/dashboard/manage-customer"
+            >
+              Manage Customer
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div
+        className={`${
+          isOpen ? "block" : "hidden"
+        } md:block pl-4 md:pl-0 mt-4 md:mt-0`}
+      >
+        <div className="my-4 flex items-center gap-2">
+          <DatasetIcon className="text-lg" />
+          <p className="font-semibold text-gray-800">Data</p>
+        </div>
+        <div className="pl-4">
+          <div className="my-3">
+            <Link
+              className="my-2 text-gray-600 hover:text-gray-800"
+              to="/dashboard/data-entry"
+            >
+              Data Entry
+            </Link>
+          </div>
+          <div className="my-3">
+            <Link
+              className="my-2 text-gray-600 hover:text-gray-800"
+              to="/dashboard/data-viewer"
+            >
+              Data Viewer
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

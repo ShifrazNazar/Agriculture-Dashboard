@@ -33,7 +33,7 @@ const DataEntry = () => {
   };
 
   return (
-    <div className="bg-white p-8">
+    <div className="bg-gray-100 p-8">
       <h2 className="mb-4 text-2xl font-bold">Data Viewer</h2>
       <div className="mb-4">
         <label htmlFor="filterCollection" className="mb-2 block font-bold">
@@ -72,37 +72,39 @@ const DataEntry = () => {
         </select>
       </div>
       {filteredValues.length > 0 && (
-        <div className="w-screen overflow-x-auto">
-          <h3 className="mt-4 text-lg font-bold">Filtered Values</h3>
-          <table className="mt-2 border-collapse border border-gray-300 ">
-            <thead>
-              <tr>
-                {/* Assuming all objects have the same keys */}
-                {Object.keys(filteredValues[0]).map((key) => (
-                  <th
-                    key={key}
-                    className="border border-gray-300 px-4 py-2 text-sm font-bold text-gray-700"
-                  >
-                    {key}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {filteredValues.map((value, index) => (
-                <tr key={index}>
-                  {Object.values(value).map((val, idx) => (
-                    <td
-                      key={idx}
-                      className="border border-gray-300 px-4 py-2 text-sm"
+        <div>
+          <h3 className="mt-4 text-lg font-bold">Table Data</h3>
+          <div className="overflow-x-auto">
+            <table className="mt-2 border-collapse border border-gray-300 ">
+              <thead>
+                <tr>
+                  {/* Assuming all objects have the same keys */}
+                  {Object.keys(filteredValues[0]).map((key) => (
+                    <th
+                      key={key}
+                      className="border border-gray-300 px-4 py-2 text-sm font-bold text-gray-700"
                     >
-                      {val}
-                    </td>
+                      {key}
+                    </th>
                   ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {filteredValues.map((value, index) => (
+                  <tr key={index}>
+                    {Object.values(value).map((val, idx) => (
+                      <td
+                        key={idx}
+                        className="border border-gray-300 px-4 py-2 text-sm"
+                      >
+                        {val}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
     </div>

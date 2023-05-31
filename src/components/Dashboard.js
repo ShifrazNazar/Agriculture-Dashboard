@@ -12,10 +12,10 @@ const Dashboard = () => {
     <div>
       <Navbar />
       <div className="flex flex-row bg-gray-100">
-        <div className="shadow-lg">
+        <div className="w-1/5">
           <Sidebar />
         </div>
-        <div className="flex-grow">
+        <div className="w-4/5 h-screen">
           <Routes>
             <Route
               path="/"
