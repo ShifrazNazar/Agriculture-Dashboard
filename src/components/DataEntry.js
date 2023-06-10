@@ -80,7 +80,7 @@ const DataEntry = () => {
   };
 
   return (
-    <div className="bg-gray-100 p-8 ">
+    <div className="bg-gray-100 p-8 h-screen ">
       <h2 className="mb-4 text-2xl font-bold">Data Entry</h2>
       <div className="mb-4">
         <label className="mb-2 block font-bold">

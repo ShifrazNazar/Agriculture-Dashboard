@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { firestore, collection, addDoc } from "../../firebase";
+import Swal from "sweetalert2";
 
 const BiologyBalanceForm = () => {
   const [biologyBalanceValues, setBiologyBalanceValues] = useState({
@@ -19,6 +20,10 @@ const BiologyBalanceForm = () => {
     }));
   };
 
+  const showConfirmation = () => {
+    Swal.fire("Success!", "Invoices data stored in Firestore successfully.", "success");
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -35,6 +40,8 @@ const BiologyBalanceForm = () => {
         activeFungi: "",
         celluloseUtilisers: "",
       });
+      // Show confirmation to user
+      showConfirmation();
     } catch (error) {
       console.error("Error storing Biology Balance data in Firestore:", error);
     }

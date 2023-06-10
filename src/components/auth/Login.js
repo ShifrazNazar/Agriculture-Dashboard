@@ -41,7 +41,7 @@ const Login = () => {
     <div className="flex min-h-screen items-center justify-center bg-gray-100">
       <div className="w-full max-w-md rounded-lg bg-white px-6 py-12">
         <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-gray-700">
-          Welcome Back!
+          Welcome!
         </h1>
         <form>
           <div>

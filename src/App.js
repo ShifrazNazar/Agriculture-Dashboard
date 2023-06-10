@@ -8,6 +8,7 @@ import SignUp from "./components/auth/SignUp";
 import ContactUs from "./components/ContactUs";
 import AboutUs from "./components/AboutUs";
 import Dashboard from "./components/Dashboard";
+import PhoneSignUp from "./components/auth/PhoneSignUp";
 
 function PrivateRoute({ children }) {
   const [user, loading] = useAuthState(auth);
@@ -27,6 +28,7 @@ function App() {
       <Route path="/signup" element={<SignUp />} />
       <Route path="/contact" element={<ContactUs />} />
       <Route path="/about" element={<AboutUs />} />
+      <Route path="/phone-signup" element={<PhoneSignUp />} />
       <Route
         path="/dashboard/*"
         element={

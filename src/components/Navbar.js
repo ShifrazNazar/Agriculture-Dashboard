@@ -28,8 +28,14 @@ const Navbar = () => {
   };
 
   const renderAuthButtons = () => {
-    if (authUser && authUser.email) {
-      const avatarText = authUser.email.charAt(0).toUpperCase();
+    if (authUser && (authUser.email || authUser.phoneNumber)) {
+      let avatarText = "";
+      if (authUser.email) {
+        avatarText = authUser.email.charAt(0).toUpperCase();
+      } else if (authUser.phoneNumber) {
+        avatarText = "😀";
+      }
+      
       return (
         <div className="flex items-center">
           <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full bg-gray-500">
