@@ -4,7 +4,7 @@ import {
   GoogleAuthProvider,
   FacebookAuthProvider,
 } from "firebase/auth";
-import { getFirestore, collection, addDoc , getDocs, doc, deleteDoc, updateDoc } from 'firebase/firestore';
+import { getFirestore, collection, addDoc , getDocs, doc, deleteDoc, updateDoc, setDoc } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDEjcCB86q4nl6ltcvz8lqo12WvInEkQF0",
@@ -22,7 +22,7 @@ export const auth = getAuth(app);
 
 // Configure Firestore
 const firestore = getFirestore(app);
-export { firestore, collection, addDoc, getDocs, doc, deleteDoc, updateDoc };
+export { firestore, collection, addDoc, getDocs, doc, deleteDoc, updateDoc, setDoc };
 
 export default firestore
 

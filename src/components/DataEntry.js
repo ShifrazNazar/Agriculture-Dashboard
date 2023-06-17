@@ -21,6 +21,8 @@ import Tobacco from "./DataEntryData/Tobacco";
 import Tree from "./DataEntryData/Tree";
 import Wheat from "./DataEntryData/Wheat";
 import WildCabbage from "./DataEntryData/WildCabbage";
+import Farm from "./DataEntryData/Farm";
+import Field from "./DataEntryData/Field";
 
 const DataEntry = () => {
   const [activeForm, setActiveForm] = useState("");
@@ -82,6 +84,8 @@ const DataEntry = () => {
   return (
     <div className="bg-gray-100 p-8 h-screen ">
       <h2 className="mb-4 text-2xl font-bold">Data Entry</h2>
+      <Farm />
+      <Field />
       <div className="mb-4">
         <label className="mb-2 block font-bold">
           Select Agricultral Product

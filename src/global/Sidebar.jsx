@@ -99,6 +99,39 @@ const Sidebar = () => {
     }
   };
 
+  // phone sign in username fetch
+  useEffect(() => {
+    const fetchUsername = async () => {
+      const user = auth.currentUser;
+      if (user) {
+        // User is signed in
+        const uid = user.uid;
+        const userDetails = await getPhoneUserDetailsFromFirestore(uid);
+        if (userDetails) {
+          setUsername(userDetails.username);
+        }
+      }
+    };
+  
+    fetchUsername();
+  }, []);
+  
+  const getPhoneUserDetailsFromFirestore = async (uid) => {
+    try {
+      const docRef = doc(firestore, "PhoneUsers", uid);
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        return docSnap.data();
+      } else {
+        console.log("No such document!");
+        return null;
+      }
+    } catch (error) {
+      console.error("Error getting user details: ", error);
+      return null;
+    }
+  };      
+
   return (
     <div className="fixed top-0 h-screen overflow-y-auto  border-r-2 py-10">
       <Box

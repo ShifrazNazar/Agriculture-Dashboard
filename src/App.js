@@ -9,6 +9,7 @@ import ContactUs from "./components/ContactUs";
 import AboutUs from "./components/AboutUs";
 import Dashboard from "./components/Dashboard";
 import PhoneSignUp from "./components/auth/PhoneSignUp";
+import ExcelExport from "./components/ExcelExport";
 
 function PrivateRoute({ children }) {
   const [user, loading] = useAuthState(auth);
@@ -26,9 +27,10 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
+      <Route path="/phone-signup" element={<PhoneSignUp />} />
       <Route path="/contact" element={<ContactUs />} />
       <Route path="/about" element={<AboutUs />} />
-      <Route path="/phone-signup" element={<PhoneSignUp />} />
+      <Route path="/excel-export" element={<ExcelExport />} />
       <Route
         path="/dashboard/*"
         element={
