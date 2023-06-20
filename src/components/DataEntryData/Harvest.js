@@ -1,33 +1,33 @@
 import React, { useState } from "react";
 import { firestore, doc, collection, setDoc } from "../../firebase";
 
-const Field = () => {
+const Harvest = () => {
   const [farmId, setFarmId] = useState("");
   const [fieldId, setFieldId] = useState("");
-  const [location, setLocation] = useState("");
-  const [areaSize, setAreaSize] = useState("");
-  const [personInCharge, setPersonInCharge] = useState("");
+  const [harvestId, setHarvestId] = useState("");
+  const [yieldQuantity, setYieldQuantity] = useState("");
+  const [production, setProduction] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const farmDocRef = doc(firestore, "Farm", farmId);
-      const fieldCollectionRef = collection(farmDocRef, "Field");
-      await setDoc(doc(fieldCollectionRef, fieldId), {
+      const fieldDocRef = doc(farmDocRef, "Field", fieldId);
+      const harvestCollectionRef = collection(fieldDocRef, "Harvest");
+      await setDoc(doc(harvestCollectionRef, harvestId), {
+        harvestId,
         createDate: new Date(),
-        location,
-        areaSize,
-        personInCharge,
+        yieldQuantity,
+        production,
       });
-      console.log("Field document created with Field ID: ", fieldId);
-      // Reset the form
+      console.log("Harvest document created with custom ID: ", harvestId);
       setFarmId("");
       setFieldId("");
-      setLocation("");
-      setAreaSize("");
-      setPersonInCharge("");
+      setHarvestId("");
+      setYieldQuantity("");
+      setProduction("");
     } catch (error) {
-      console.error("Error adding Field document: ", error);
+      console.error("Error adding Harvest document: ", error);
     }
   };
 
@@ -56,35 +56,35 @@ const Field = () => {
             required
           />
         </label>
-        <label htmlFor="location" className="mb-2 block">
-          Location:
+        <label htmlFor="harvestId" className="mb-2 block">
+          Harvest ID:
           <input
             type="text"
-            id="location"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
+            id="harvestId"
+            value={harvestId}
+            onChange={(e) => setHarvestId(e.target.value)}
             className="w-full border border-gray-300 p-2"
             required
           />
         </label>
-        <label htmlFor="areaSize" className="mb-2 block">
-          Area Size (HCR):
+        <label htmlFor="yieldQuantity" className="mb-2 block">
+          Yield (Quantity):
           <input
-            type="number"
-            id="areaSize"
-            value={areaSize}
-            onChange={(e) => setAreaSize(e.target.value)}
+            type="text"
+            id="yieldQuantity"
+            value={yieldQuantity}
+            onChange={(e) => setYieldQuantity(e.target.value)}
             className="w-full border border-gray-300 p-2"
             required
           />
         </label>
-        <label htmlFor="personInCharge" className="mb-2 block">
-          Person in Charge:
+        <label htmlFor="production" className="mb-2 block">
+          Production:
           <input
             type="text"
-            id="personInCharge"
-            value={personInCharge}
-            onChange={(e) => setPersonInCharge(e.target.value)}
+            id="production"
+            value={production}
+            onChange={(e) => setProduction(e.target.value)}
             className="w-full border border-gray-300 p-2"
             required
           />
@@ -93,11 +93,11 @@ const Field = () => {
           type="submit"
           className="mt-4 bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
         >
-          Create Field
+          Create Harvest
         </button>
       </form>
     </div>
   );
 };
 
-export default Field;
+export default Harvest;

@@ -3,7 +3,7 @@ import { collection, getDocs, query } from "firebase/firestore";
 import { firestore } from "../firebase";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 
-const ExcelExport = () => {
+const DataViwer2 = () => {
   const [data, setData] = useState([]);
   const [fieldData, setFieldData] = useState([]);
   const [harvestData, setHarvestData] = useState([]);
@@ -134,4 +134,4 @@ const ExcelExport = () => {
   );
 };
 
-export default ExcelExport;
+export default DataViwer2;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { firestore, doc, setDoc } from "../../firebase";
 
 const Farm = () => {
-    const [customId, setCustomId] = useState("");
+  const [farmId, setFarmId] = useState("");
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
   const [address, setAddress] = useState("");
@@ -13,7 +13,7 @@ const Farm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const farmDocRef = doc(firestore, "Farm", customId);
+      const farmDocRef = doc(firestore, "Farm", farmId);
       await setDoc(farmDocRef, {
         name,
         location,
@@ -23,9 +23,9 @@ const Farm = () => {
         totalArea,
         totalYield,
       });
-      console.log("Document written with ID: ", customId);
+      console.log("Document written with ID: ", farmId);
       // Reset the form
-      setCustomId("");
+      setFarmId("");
       setName("");
       setLocation("");
       setAddress("");
@@ -38,88 +38,88 @@ const Farm = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-200 p-4">
+    <div className="bg-white p-4 dark:bg-gray-200">
       <form onSubmit={handleSubmit}>
-      <label htmlFor="customId" className="block mb-2">
-          Custom ID:
+        <label htmlFor="farmId" className="mb-2 block">
+          Farm ID:
           <input
             type="text"
-            id="customId"
-            value={customId}
-            onChange={(e) => setCustomId(e.target.value)}
-            className="border border-gray-300 p-2 w-full"
+            id="farmId"
+            value={farmId}
+            onChange={(e) => setFarmId(e.target.value)}
+            className="w-full border border-gray-300 p-2"
             required
           />
         </label>
-        <label htmlFor="name" className="block mb-2">
+        <label htmlFor="name" className="mb-2 block">
           Name:
           <input
             type="text"
             id="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="border border-gray-300 p-2 w-full"
+            className="w-full border border-gray-300 p-2"
             required
           />
         </label>
-        <label htmlFor="location" className="block mb-2">
+        <label htmlFor="location" className="mb-2 block">
           Location:
           <input
             type="text"
             id="location"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
-            className="border border-gray-300 p-2 w-full"
+            className="w-full border border-gray-300 p-2"
             required
           />
         </label>
-        <label htmlFor="address" className="block mb-2">
+        <label htmlFor="address" className="mb-2 block">
           Address:
           <input
             type="text"
             id="address"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
-            className="border border-gray-300 p-2 w-full"
+            className="w-full border border-gray-300 p-2"
             required
           />
         </label>
-        <label htmlFor="personInCharge" className="block mb-2">
+        <label htmlFor="personInCharge" className="mb-2 block">
           Person in Charge:
           <input
             type="text"
             id="personInCharge"
             value={personInCharge}
             onChange={(e) => setPersonInCharge(e.target.value)}
-            className="border border-gray-300 p-2 w-full"
+            className="w-full border border-gray-300 p-2"
             required
           />
         </label>
-        <label htmlFor="totalArea" className="block mb-2">
+        <label htmlFor="totalArea" className="mb-2 block">
           Total Area:
           <input
             type="number"
             id="totalArea"
             value={totalArea}
             onChange={(e) => setTotalArea(e.target.value)}
-            className="border border-gray-300 p-2 w-full"
+            className="w-full border border-gray-300 p-2"
             required
           />
         </label>
-        <label htmlFor="totalYield" className="block mb-2">
+        <label htmlFor="totalYield" className="mb-2 block">
           Total Yield:
           <input
             type="number"
             id="totalYield"
             value={totalYield}
             onChange={(e) => setTotalYield(e.target.value)}
-            className="border border-gray-300 p-2 w-full"
+            className="w-full border border-gray-300 p-2"
             required
           />
         </label>
         <button
           type="submit"
-          className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 mt-4"
+          className="mt-4 bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
         >
           Create Farm
         </button>
