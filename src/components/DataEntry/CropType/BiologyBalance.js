@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { firestore, collection, addDoc } from "../../firebase";
+import { firestore, collection, addDoc } from "../../../firebase";
 import Swal from "sweetalert2";
 
 const BiologyBalanceForm = () => {

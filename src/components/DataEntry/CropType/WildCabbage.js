@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import { firestore, collection, addDoc } from "../../firebase";
+import { firestore, collection, addDoc } from "../../../firebase";
 
-const ChineseCabbage = () => {
+const WildCabbage = () => {
   const [cabbageValues, setCabbageValues] = useState({
+    plantHeight: "",
     developmentDegree: "",
-    grossWeightPerPlant: "",
-    netWeightPerPlant: "",
-    cabbageHeartHeight: "",
+    maxOuterLeafWidth: "",
+    ballDiameter: "",
     innerShrinkingDiameter: "",
-    softLeafRate: "",
-    plantingQuantity: "",
-    headFormingRate: "",
+    numOuterLeaves: "",
+    grossWeight: "",
+    netWeight: "",
+    clubrootIncidence: "",
   });
 
   const handleChange = (event) => {
@@ -25,28 +26,42 @@ const ChineseCabbage = () => {
     event.preventDefault();
     try {
       // Store values in Firestore
-      const collectionRef = collection(firestore, "ChineseCabbage");
+      const collectionRef = collection(firestore, "WildCabbage");
       await addDoc(collectionRef, cabbageValues);
-      console.log("Chinese cabbage data successfully stored in Firestore!");
+      console.log("Wild Cabbage data successfully stored in Firestore!");
       // Reset form values
       setCabbageValues({
+        plantHeight: "",
         developmentDegree: "",
-        grossWeightPerPlant: "",
-        netWeightPerPlant: "",
-        cabbageHeartHeight: "",
+        maxOuterLeafWidth: "",
+        ballDiameter: "",
         innerShrinkingDiameter: "",
-        softLeafRate: "",
-        plantingQuantity: "",
-        headFormingRate: "",
+        numOuterLeaves: "",
+        grossWeight: "",
+        netWeight: "",
+        clubrootIncidence: "",
       });
     } catch (error) {
-      console.error("Error storing Chinese cabbage data in Firestore:", error);
+      console.error("Error storing Wild Cabbage data in Firestore:", error);
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div className="grid grid-cols-3 gap-4">
+        <div className="mb-4">
+          <label htmlFor="plantHeight" className="mb-2 block">
+            Plant Height (cm)
+          </label>
+          <input
+            type="text"
+            id="plantHeight"
+            name="plantHeight"
+            value={cabbageValues.plantHeight}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
         <div className="mb-4">
           <label htmlFor="developmentDegree" className="mb-2 block">
             Development Degree (cm × cm)
@@ -61,40 +76,27 @@ const ChineseCabbage = () => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="grossWeightPerPlant" className="mb-2 block">
-            Gross Weight per Plant (kg)
+          <label htmlFor="maxOuterLeafWidth" className="mb-2 block">
+            Maximum Outer Leaf Width (cm × cm)
           </label>
           <input
             type="text"
-            id="grossWeightPerPlant"
-            name="grossWeightPerPlant"
-            value={cabbageValues.grossWeightPerPlant}
+            id="maxOuterLeafWidth"
+            name="maxOuterLeafWidth"
+            value={cabbageValues.maxOuterLeafWidth}
             onChange={handleChange}
             className="w-full border border-gray-300 p-2"
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="netWeightPerPlant" className="mb-2 block">
-            Net Weight per Plant (kg)
+          <label htmlFor="ballDiameter" className="mb-2 block">
+            Vertical & Horizontal Diameter of Single Ball (cm × cm)
           </label>
           <input
             type="text"
-            id="netWeightPerPlant"
-            name="netWeightPerPlant"
-            value={cabbageValues.netWeightPerPlant}
-            onChange={handleChange}
-            className="w-full border border-gray-300 p-2"
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="cabbageHeartHeight" className="mb-2 block">
-            Cabbage Heart Height (cm)
-          </label>
-          <input
-            type="text"
-            id="cabbageHeartHeight"
-            name="cabbageHeartHeight"
-            value={cabbageValues.cabbageHeartHeight}
+            id="ballDiameter"
+            name="ballDiameter"
+            value={cabbageValues.ballDiameter}
             onChange={handleChange}
             className="w-full border border-gray-300 p-2"
           />
@@ -113,40 +115,53 @@ const ChineseCabbage = () => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="softLeafRate" className="mb-2 block">
-            Soft Leaf Rate (%)
+          <label htmlFor="numOuterLeaves" className="mb-2 block">
+            Number of Outer Leaves
           </label>
           <input
             type="text"
-            id="softLeafRate"
-            name="softLeafRate"
-            value={cabbageValues.softLeafRate}
+            id="numOuterLeaves"
+            name="numOuterLeaves"
+            value={cabbageValues.numOuterLeaves}
             onChange={handleChange}
             className="w-full border border-gray-300 p-2"
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="plantingQuantity" className="mb-2 block">
-            Planting Quantity (plant)
+          <label htmlFor="grossWeight" className="mb-2 block">
+            Gross Weight per Plant (kg)
           </label>
           <input
             type="text"
-            id="plantingQuantity"
-            name="plantingQuantity"
-            value={cabbageValues.plantingQuantity}
+            id="grossWeight"
+            name="grossWeight"
+            value={cabbageValues.grossWeight}
             onChange={handleChange}
             className="w-full border border-gray-300 p-2"
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="headFormingRate" className="mb-2 block">
-            Head-forming Rate (%)
+          <label htmlFor="netWeight" className="mb-2 block">
+            Net Weight per Plant (kg)
           </label>
           <input
             type="text"
-            id="headFormingRate"
-            name="headFormingRate"
-            value={cabbageValues.headFormingRate}
+            id="netWeight"
+            name="netWeight"
+            value={cabbageValues.netWeight}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="clubrootIncidence" className="mb-2 block">
+            Incidence of Clubroot Disease (%)
+          </label>
+          <input
+            type="text"
+            id="clubrootIncidence"
+            name="clubrootIncidence"
+            value={cabbageValues.clubrootIncidence}
             onChange={handleChange}
             className="w-full border border-gray-300 p-2"
           />
@@ -156,10 +171,10 @@ const ChineseCabbage = () => {
         type="submit"
         className="col-span-2 rounded bg-blue-500 px-4 py-2 text-white"
       >
-        Submit Chinese Cabbage
+        Submit Wild Cabbage
       </button>
     </form>
   );
 };
 
-export default ChineseCabbage;
+export default WildCabbage;

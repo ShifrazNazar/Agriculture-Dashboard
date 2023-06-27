@@ -55,6 +55,7 @@ export default function UsersList() {
       const collectionRef = collection(firestore, "invoices");
       await addDoc(collectionRef, invoices);
       console.log("invoices data successfully stored in Firestore!");
+
       // Reset form values
       setInvoices({
         ID: "",
@@ -112,7 +113,11 @@ export default function UsersList() {
   };
 
   const showConfirmation = () => {
-    Swal.fire("Success!", "Invoices data stored in Firestore successfully.", "success");
+    Swal.fire(
+      "Success!",
+      "Invoices data stored in Firestore successfully.",
+      "success"
+    );
   };
 
   const deleteApi = async (id) => {
@@ -202,6 +207,7 @@ export default function UsersList() {
               onChange={handleChange}
               variant="outlined"
               margin="normal"
+              required
             />
             <TextField
               fullWidth
@@ -212,6 +218,7 @@ export default function UsersList() {
               onChange={handleChange}
               variant="outlined"
               margin="normal"
+              required
             />
 
             <TextField
@@ -223,6 +230,7 @@ export default function UsersList() {
               onChange={handleChange}
               variant="outlined"
               margin="normal"
+              required
             />
 
             <TextField
@@ -234,6 +242,7 @@ export default function UsersList() {
               onChange={handleChange}
               variant="outlined"
               margin="normal"
+              required
             />
             <TextField
               fullWidth
@@ -244,6 +253,7 @@ export default function UsersList() {
               onChange={handleChange}
               variant="outlined"
               margin="normal"
+              required
             />
             <TextField
               fullWidth
@@ -254,6 +264,7 @@ export default function UsersList() {
               onChange={handleChange}
               variant="outlined"
               margin="normal"
+              required
             />
 
             <Button type="submit" variant="contained" color="primary" fullWidth>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { firestore, collection, addDoc } from "../../firebase";
+import { firestore, collection, addDoc } from "../../../firebase";
 
 const Tea = () => {
   const [teaValues, setTeaValues] = useState({

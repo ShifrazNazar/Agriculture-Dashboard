@@ -4,9 +4,6 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 import Button from "@mui/material/Button";
 import Header from "../../components/Header";
 import Box from "@mui/material/Box";
-import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
-import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
-import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import Stack from "@mui/material/Stack";
 import {
   firestore,
@@ -30,21 +27,21 @@ export default function UsersList() {
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [rows, setRows] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false); // State to control the modal visibility
+
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
-  const [team, setTeam] = useState({
+  const [customer, setCustomer] = useState({
     ID: "",
     name: "",
-    age: "",
-    phone: "",
     email: "",
-    accessLevel: "",
+    phone: "",
+    address: "",
   });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setTeam((prevValues) => ({
+    setCustomer((prevValues) => ({
       ...prevValues,
       [name]: value,
     }));
@@ -54,23 +51,23 @@ export default function UsersList() {
     event.preventDefault();
     try {
       // Store values in Firestore
-      const collectionRef = collection(firestore, "team");
-      await addDoc(collectionRef, team);
-      console.log("Team data successfully stored in Firestore!");
+      const collectionRef = collection(firestore, "customer");
+      await addDoc(collectionRef, customer);
+      console.log("customer data successfully stored in Firestore!");
+
       // Reset form values
-      setTeam({
+      setCustomer({
         ID: "",
         name: "",
-        age: "",
-        phone: "",
         email: "",
-        accessLevel: "",
+        phone: "",
+        address: "",
       });
       closeModal(); // Close the modal after submitting the form
       getUsers(); // Fetch the updated data after adding a new product
       showConfirmation(); // Show confirmation alert
     } catch (error) {
-      console.error("Error storing access level data in Firestore:", error);
+      console.error("Error storing customer data in Firestore:", error);
     }
   };
 
@@ -79,7 +76,7 @@ export default function UsersList() {
   }, []);
 
   const getUsers = async () => {
-    const querySnapshot = await getDocs(collection(firestore, "team"));
+    const querySnapshot = await getDocs(collection(firestore, "customer"));
     const tempArr = [];
     querySnapshot.forEach((doc) => {
       tempArr.push({ ...doc.data(), id: doc.id });
@@ -96,7 +93,7 @@ export default function UsersList() {
     setPage(0);
   };
 
-  const deleteUser = (id) => {
+  const deleteCustomer = (id) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -113,11 +110,15 @@ export default function UsersList() {
   };
 
   const showConfirmation = () => {
-    Swal.fire("Success!", "teams data stored in Firestore successfully.", "success");
+    Swal.fire(
+      "Success!",
+      "customers data stored in Firestore successfully.",
+      "success"
+    );
   };
 
   const deleteApi = async (id) => {
-    const userDoc = doc(firestore, "team", id);
+    const userDoc = doc(firestore, "customer", id);
     await deleteDoc(userDoc);
     Swal.fire("Deleted!", "Your file has been deleted.", "success");
     getUsers();
@@ -132,60 +133,12 @@ export default function UsersList() {
   };
 
   const columns = [
-    { field: "ID", headerName: "ID" },
-    {
-      field: "name",
-      headerName: "Name",
-      flex: 1,
-    },
-    {
-      field: "age",
-      headerName: "Age",
-      type: "number",
-      headerAlign: "left",
-      align: "left",
-    },
-    {
-      field: "phone",
-      headerName: "Phone Number",
-      flex: 1,
-    },
-    {
-      field: "email",
-      headerName: "Email",
-      flex: 1,
-    },
-    {
-      field: "accessLevel",
-      headerName: "Access Level",
-      flex: 1,
-      renderCell: ({ row: { accessLevel } }) => {
-        return (
-          <Box
-            width="60%"
-            m="0 auto"
-            p="5px"
-            display="flex"
-            justifyContent="center"
-            backgroundColor={
-              accessLevel === "admin"
-                ? colors.greenAccent[600]
-                : accessLevel === "manager"
-                ? colors.greenAccent[700]
-                : colors.greenAccent[700]
-            }
-            borderRadius="4px"
-          >
-            {accessLevel === "admin" && <AdminPanelSettingsOutlinedIcon />}
-            {accessLevel === "manager" && <SecurityOutlinedIcon />}
-            {accessLevel === "user" && <LockOpenOutlinedIcon />}
-            <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
-              {accessLevel}
-            </Typography>
-          </Box>
-        );
-      },
-    },
+    { field: "ID", headerName: "ID", width: 150 },
+    { field: "name", headerName: "Name", width: 150 },
+    { field: "email", headerName: "Email", width: 150 },
+    { field: "phone", headerName: "Phone", width: 150 },
+    { field: "address", headerName: "Address", width: 150 },
+
     {
       field: "actions",
       headerName: "Actions",
@@ -199,7 +152,7 @@ export default function UsersList() {
               cursor: "pointer",
             }}
             className="cursor-pointer"
-            // onClick={() => editUser(params.id)}
+            // onClick={() => editCustomer(params.id)}
           />
           <DeleteIcon
             style={{
@@ -208,7 +161,7 @@ export default function UsersList() {
               cursor: "pointer",
             }}
             onClick={() => {
-              deleteUser(params.id);
+              deleteCustomer(params.id);
             }}
           />
         </Stack>
@@ -235,9 +188,9 @@ export default function UsersList() {
             <TextField
               fullWidth
               label="ID"
-              id="teamID"
+              id="customerID"
               name="ID"
-              value={team.ID}
+              value={customer.ID}
               onChange={handleChange}
               variant="outlined"
               margin="normal"
@@ -246,64 +199,46 @@ export default function UsersList() {
             <TextField
               fullWidth
               label="Name"
-              id="teamName"
+              id="customerName"
               name="name"
-              value={team.name}
+              value={customer.name}
               onChange={handleChange}
               variant="outlined"
               margin="normal"
               required
-
             />
             <TextField
               fullWidth
-              label="Age"
-              id="teamAge"
-              name="age"
-              value={team.age}
-              onChange={handleChange}
-              variant="outlined"
-              margin="normal"
-              required
-
-            />
-
-            <TextField
-              fullWidth
-              label="email"
-              id="teamEmail"
+              label="Email"
+              id="customerEmail"
               name="email"
-              value={team.email}
+              value={customer.email}
               onChange={handleChange}
               variant="outlined"
               margin="normal"
               required
-
             />
-
             <TextField
               fullWidth
               label="Phone"
-              id="teamPhone"
+              id="customerPhone"
               name="phone"
-              value={team.phone}
+              value={customer.phone}
               onChange={handleChange}
               variant="outlined"
               margin="normal"
               required
-
             />
             <TextField
               fullWidth
-              label="Access Level"
-              id="teamAccessLevel"
-              name="accessLevel"
-              value={team.accessLevel}
+              label="Address"
+              id="customerAddress"
+              name="address"
+              value={customer.address}
               onChange={handleChange}
               variant="outlined"
               margin="normal"
               required
-
             />
 
             <Button type="submit" variant="contained" color="primary" fullWidth>
@@ -316,8 +251,8 @@ export default function UsersList() {
       <Box m="20px">
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           <Header
-            title="Team List"
-            subtitle="List of team for Future Reference"
+            title="Customer"
+            subtitle="List of Customer for Future Reference"
           />
         </Typography>
 

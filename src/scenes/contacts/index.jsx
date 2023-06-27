@@ -196,6 +196,7 @@ export default function UsersList() {
               onChange={handleChange}
               variant="outlined"
               margin="normal"
+              required
             />
             <TextField
               fullWidth
@@ -206,6 +207,7 @@ export default function UsersList() {
               onChange={handleChange}
               variant="outlined"
               margin="normal"
+              required
             />
             <TextField
               fullWidth
@@ -216,6 +218,7 @@ export default function UsersList() {
               onChange={handleChange}
               variant="outlined"
               margin="normal"
+              required
             />
             <TextField
               fullWidth
@@ -226,6 +229,7 @@ export default function UsersList() {
               onChange={handleChange}
               variant="outlined"
               margin="normal"
+              required
             />
             <TextField
               fullWidth
@@ -236,6 +240,7 @@ export default function UsersList() {
               onChange={handleChange}
               variant="outlined"
               margin="normal"
+              required
             />
             <TextField
               fullWidth
@@ -246,6 +251,7 @@ export default function UsersList() {
               onChange={handleChange}
               variant="outlined"
               margin="normal"
+              required
             />
 
             <Button type="submit" variant="contained" color="primary" fullWidth>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { firestore, collection, addDoc } from "../../firebase";
+import { firestore, collection, addDoc } from "../../../firebase";
 
 const Crop = () => {
   const [cropValues, setCropValues] = useState({

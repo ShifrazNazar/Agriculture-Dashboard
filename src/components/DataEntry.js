@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import Farm from "./DataEntryData/Farm";
-import Field from "./DataEntryData/Field";
-import Harvest from "./DataEntryData/Harvest";
-import Sowing from "./DataEntryData/Sowing";
+import Farm from "./DataEntry/Farm";
+import Field from "./DataEntry/Field";
+import Harvest from "./DataEntry/Harvest";
+import Sowing from "./DataEntry/Sowing";
+import Consumption from "./DataEntry/Consumption";
 
 const DataEntry = () => {
   const [selectedSection, setSelectedSection] = useState(null);
@@ -24,12 +25,14 @@ const DataEntry = () => {
         <option value="field">Field</option>
         <option value="harvest">Harvest</option>
         <option value="sowing">Sowing</option>
+        <option value="consumption">Consumption</option>
       </select>
 
       {selectedSection === "farm" && <Farm />}
       {selectedSection === "field" && <Field />}
       {selectedSection === "harvest" && <Harvest />}
       {selectedSection === "sowing" && <Sowing />}
+      {selectedSection === "consumption" && <Consumption />}
     </div>
   );
 };

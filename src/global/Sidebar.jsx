@@ -15,6 +15,8 @@ import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
+import InventoryOutlinedIcon from "@mui/icons-material/InventoryOutlined";
+import GroupsIcon from '@mui/icons-material/Groups';
 import { auth } from "../firebase";
 import { doc, getDoc } from "firebase/firestore";
 import firestore from "../firebase";
@@ -237,11 +239,18 @@ const Sidebar = () => {
                 to="/dashboard/team"
                 icon={<PeopleOutlinedIcon />}
                 selected={selected}
+                set
+                Selected={setSelected}
+              />
+                  <Item
+                title="Customer Info"
+                to="/dashboard/customers"
+                icon={<GroupsIcon />}
+                selected={selected}
                 setSelected={setSelected}
               />
-
               <Item
-                title="Contacts Information"
+                title="Contacts Info"
                 to="/dashboard/contacts"
                 icon={<ContactsOutlinedIcon />}
                 selected={selected}
@@ -266,6 +275,13 @@ const Sidebar = () => {
                 title="Profile Form"
                 to="/dashboard/form"
                 icon={<PersonOutlinedIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+                     <Item
+                title="Inventory Control"
+                to="/dashboard/inventory"
+                icon={<InventoryOutlinedIcon />}
                 selected={selected}
                 setSelected={setSelected}
               />

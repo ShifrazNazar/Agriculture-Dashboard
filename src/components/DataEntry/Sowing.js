@@ -1,28 +1,28 @@
 import React, { useState } from "react";
 import { firestore, doc, collection, setDoc } from "../../firebase";
 
-import BiologyBalance from "../DataEntryData/BiologyBalance";
-import Crop from "../DataEntryData/Crop";
-import Canola from "../DataEntryData/Canola";
-import CationBalance from "../DataEntryData/CationBalance";
-import ChineseCabbage from "../DataEntryData/ChineseCabbage";
-import Corn from "../DataEntryData/Corn";
-import Cotton from "../DataEntryData/Cotton";
-import Flowers from "../DataEntryData/Flowers";
-import Forage from "../DataEntryData/Forage";
-import NutrientBalance from "../DataEntryData/NutrientsBalance";
-import OilPalm from "../DataEntryData/OilPalm";
-import Other from "../DataEntryData/Other";
-import PaddyGrain from "../DataEntryData/PaddyGrain";
-import Peanut from "../DataEntryData/Peanut";
-import Poppy from "../DataEntryData/Poppy";
-import Sorghum from "../DataEntryData/Sorghum";
-import Sugarcane from "../DataEntryData/Sugarcane";
-import Tea from "../DataEntryData/Tea";
-import Tobacco from "../DataEntryData/Tobacco";
-import Tree from "../DataEntryData/Tree";
-import Wheat from "../DataEntryData/Wheat";
-import WildCabbage from "../DataEntryData/WildCabbage";
+import BiologyBalance from "./CropType/BiologyBalance";
+import Crop from "./CropType/Crop";
+import Canola from "./CropType/Canola";
+import CationBalance from "./CropType/CationBalance";
+import ChineseCabbage from "./CropType/ChineseCabbage";
+import Corn from "./CropType/Corn";
+import Cotton from "./CropType/Cotton";
+import Flowers from "./CropType/Flowers";
+import Forage from "./CropType/Forage";
+import NutrientBalance from "./CropType/NutrientsBalance";
+import OilPalm from "./CropType/OilPalm";
+import Other from "./CropType/Other";
+import PaddyGrain from "./CropType/PaddyGrain";
+import Peanut from "./CropType/Peanut";
+import Poppy from "./CropType/Poppy";
+import Sorghum from "./CropType/Sorghum";
+import Sugarcane from "./CropType/Sugarcane";
+import Tea from "./CropType/Tea";
+import Tobacco from "./CropType/Tobacco";
+import Tree from "./CropType/Tree";
+import Wheat from "./CropType/Wheat";
+import WildCabbage from "./CropType/WildCabbage";
 
 const Sowing = () => {
   const [farmId, setFarmId] = useState("");
@@ -186,7 +186,18 @@ const Sowing = () => {
             required
           />
         </label>
+        <label htmlFor="cropType" className="mb-2 block">
+          Crop Type:
+          <input
+            type="text"
+            id="cropType"
+            value={cropType}
+            onChange={(e) => setCropType(e.target.value)}
 
+            className="w-full border border-gray-300 p-2"
+            required
+          />
+        </label>
         <div className="mb-4">
           <label className="mb-2 block">Crop Type: </label>
           <select
