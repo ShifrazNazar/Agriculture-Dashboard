@@ -2,10 +2,6 @@ import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
 import { mockTransactions } from "../../data/mockData";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
-import EmailIcon from "@mui/icons-material/Email";
-import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import TrafficIcon from "@mui/icons-material/Traffic";
 import Header from "../../components/Header";
 import LineChart from "../../components/LineChart";
 import GeographyChart from "../../components/GeographyChart";
@@ -54,15 +50,10 @@ const Dashboard2 = () => {
           justifyContent="center"
         >
           <StatBox
-            title="12,361"
-            subtitle="Emails Sent"
+            title="Total Land Area"
+            subtitle="120ha"
             progress="0.75"
-            increase="+14%"
-            icon={
-              <EmailIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
-              />
-            }
+            increase="+11.4%"
           />
         </Box>
         <Box
@@ -73,15 +64,11 @@ const Dashboard2 = () => {
           justifyContent="center"
         >
           <StatBox
-            title="431,225"
-            subtitle="Sales Obtained"
+            title="Total Number Of Farms"
+            subtitle="23"
             progress="0.50"
-            increase="+21%"
-            icon={
-              <PointOfSaleIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
-              />
-            }
+            increase="-0.03%"
+
           />
         </Box>
         <Box
@@ -92,15 +79,10 @@ const Dashboard2 = () => {
           justifyContent="center"
         >
           <StatBox
-            title="32,441"
-            subtitle="New Clients"
+            title="Total Number Of Fields"
+            subtitle="56"
             progress="0.30"
-            increase="+5%"
-            icon={
-              <PersonAddIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
-              />
-            }
+            increase="+5%"            
           />
         </Box>
         <Box
@@ -111,15 +93,11 @@ const Dashboard2 = () => {
           justifyContent="center"
         >
           <StatBox
-            title="1,325,134"
-            subtitle="Traffic Received"
+            title="Total Consumption"
+            subtitle="N/A"
             progress="0.80"
-            increase="+43%"
-            icon={
-              <TrafficIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
-              />
-            }
+            increase="0%"
+
           />
         </Box>
 
@@ -142,15 +120,9 @@ const Dashboard2 = () => {
                 fontWeight="600"
                 color={colors.grey[100]}
               >
-                Revenue Generated
+                Harvest Paddy
               </Typography>
-              <Typography
-                variant="h7"
-                fontWeight="bold"
-                color={colors.greenAccent[500]}
-              >
-                $59,342.32
-              </Typography>
+      
             </Box>
             <Box>
               <IconButton>
@@ -179,7 +151,7 @@ const Dashboard2 = () => {
             p="15px"
           >
             <Typography color={colors.grey[100]} variant="h6" fontWeight="600">
-              Recent Transactions
+              Farm Name
             </Typography>
           </Box>
           {mockTransactions.map((transaction, i) => (
@@ -199,17 +171,23 @@ const Dashboard2 = () => {
                 >
                   {transaction.txId}
                 </Typography>
-                <Typography color={colors.grey[100]}>
+                
+                <Typography color={colors.grey[100]}> In Charge {"-> "} 
                   {transaction.user}
                 </Typography>
               </Box>
-              <Box color={colors.grey[100]}>{transaction.date}</Box>
-              <Box
-                backgroundColor={colors.greenAccent[500]}
-                p="5px 10px"
-                borderRadius="4px"
-              >
-                ${transaction.cost}
+              <Box>
+                <Typography
+                  color={colors.greenAccent[500]}
+                  variant="h7"
+                  fontWeight="600"
+                >
+                  Land Area:
+                </Typography>
+                
+                <Typography color={colors.grey[100]}> 
+                  {transaction.cost}
+                </Typography>
               </Box>
             </Box>
           ))}
@@ -223,7 +201,7 @@ const Dashboard2 = () => {
           p="30px"
         >
           <Typography variant="h7" fontWeight="600">
-            Campaign
+            Variety Type
           </Typography>
           <Box
             display="flex"
@@ -234,12 +212,16 @@ const Dashboard2 = () => {
             <ProgressCircle size="125" />
             <Typography
               variant="h7"
-              color={colors.greenAccent[500]}
               sx={{ mt: "15px" }}
             >
-              $48,352 revenue generated
+              2023 Cycle
             </Typography>
-            <Typography>Includes extra misc expenditures and costs</Typography>
+            <Typography>
+              <span style={{ color: colors.greenAccent[500] }}>MR297 sah </span> 38.6%
+              
+
+
+            </Typography>
           </Box>
         </Box>
 
@@ -271,7 +253,7 @@ const Dashboard2 = () => {
             fontWeight="600"
             sx={{ padding: "30px 30px 0 30px" }}
           >
-            Sales Quantity
+            Harvest (by field)
           </Typography>
           <Box height="250px" mt="-20px">
             <BarChart isDashboard={true} />

@@ -20,6 +20,7 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import { auth } from "../firebase";
 import { doc, getDoc } from "firebase/firestore";
 import firestore from "../firebase";
+import userProfile from "../Assets/vector-users-icon.jpg";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -187,7 +188,7 @@ const Sidebar = () => {
                     alt="profile-user"
                     width="100px"
                     height="100px"
-                    src={`https://static.vecteezy.com/system/resources/previews/000/439/863/original/vector-users-icon.jpg`}
+                    src={userProfile}
                     style={{ cursor: "pointer", borderRadius: "50%" }}
                   />
                 </Box>
