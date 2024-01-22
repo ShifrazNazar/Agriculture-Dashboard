@@ -10,9 +10,9 @@ const AboutUs = () => {
       <div className="bg-gray-100">
         <img className="w-full " src={Truck} alt="Truck" />
 
-        <div className="mx-auto max-w-2xl py-12 text-center">
-          <h1 className=" mb-4 text-3xl font-bold text-gray-800">About Us</h1>
-          <p className="mb-4 text-center text-gray-700">
+        <div className="mx-auto max-w-2xl py-12 text-justify">
+          <h1 className=" mb-4 text-3xl font-bold text-gray-800 text-center">About Us</h1>
+          <p className="mb-4 text-gray-700">
             We are an agriculture produce research company dedicated to
             advancing the field of crop cultivation and quality. Our team of
             experts is committed to developing high-quality produce varieties

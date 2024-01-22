@@ -9,13 +9,12 @@ import ContactUs from "./components/ContactUs";
 import AboutUs from "./components/AboutUs";
 import Dashboard from "./components/Dashboard";
 import PhoneSignUp from "./components/auth/PhoneSignUp";
-import DataViewer2 from "./components/DataViewer2";
 
 function PrivateRoute({ children }) {
   const [user, loading] = useAuthState(auth);
 
   if (loading) {
-    return null; // or some loading spinner
+    return null;
   }
 
   return user ? children : <Navigate to="/login" replace />;
@@ -30,7 +29,6 @@ function App() {
       <Route path="/phone-signup" element={<PhoneSignUp />} />
       <Route path="/contact" element={<ContactUs />} />
       <Route path="/about" element={<AboutUs />} />
-      <Route path="/data-viewer2" element={<DataViewer2 />} />
       <Route
         path="/dashboard/*"
         element={

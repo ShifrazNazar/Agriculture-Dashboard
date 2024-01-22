@@ -2,15 +2,12 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./Navbar";
 import Sidebar from "../global/Sidebar";
-import DataViewer from "./DataViewer";
-import DataEntry from "./DataEntry";
 import Dashboard2 from "../scenes/dashboard/index";
 import Bar from "../scenes/bar/index";
 import Pie from "../scenes/pie/index";
 import Line from "../scenes/line/index";
 import FAQ from "../scenes/faq/index";
 import Geography from "../scenes/geography/index";
-import Team from "../scenes/team/index";
 import Contacts from "../scenes/contacts/index";
 import Invoices from "../scenes/invoices/index";
 import Form from "../scenes/form/index";
@@ -28,9 +25,6 @@ const Dashboard = () => {
         <div className=" h-full w-4/5">
           <Routes>
             <Route path="/" element={<Dashboard2 />} />
-            <Route path="data-viewer" element={<DataViewer />} />
-            <Route path="data-entry" element={<DataEntry />} />
-            <Route path="team" element={<Team />} />
             <Route path="customers" element={<Customers />} />
             <Route path="contacts" element={<Contacts />} />
             <Route path="invoices" element={<Invoices />} />

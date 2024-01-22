@@ -9,7 +9,7 @@ import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
 
-const Dashboard2 = () => {
+const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -264,4 +264,4 @@ const Dashboard2 = () => {
   );
 };
 
-export default Dashboard2;
+export default Dashboard;
